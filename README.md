@@ -1,2 +1,13 @@
 # JPA-Data-Board-
-Entity를 노출시키지않고 Dto를 활용해서 효율적으로 API를 개발해봤습니다.
+
+
+
+* [SpringBoot] 게시판 (1) - 준비작업
+
+* [SpringBoot] 게시판 (2) - 게시글 추가하기
+
+* [SpringBoot] 게시판 (3) - 게시글 조회,수정,삭제
+
+* [SpringBoot] 게시판 (4) - 검색과 페이징
+
+* [SpringBoot] 게시판 (5) - EC2에 배포하기
