@@ -1,5 +1,6 @@
 # JPA-Data-Board-
 
+### Mysql Spring Data Jpa 로 만든 간단한 게시판
 
 
 * [SpringBoot] 게시판 (1) - 준비작업
