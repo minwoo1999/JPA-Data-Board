@@ -2,7 +2,7 @@
 
 ### Mysql Spring Data Jpa 로 만든 간단한 게시판
 
-Test:Junit5
+
 
 * [SpringBoot] 게시판 (1) - 준비작업 (mysql workbench ,h2, 등등 환경설정)
 
