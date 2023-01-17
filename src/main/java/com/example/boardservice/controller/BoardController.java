@@ -2,9 +2,12 @@ package com.example.boardservice.controller;
 
 import com.example.boardservice.Entity.Board;
 import com.example.boardservice.dto.BoardDto;
+import com.example.boardservice.repository.BoardRepository;
 import com.example.boardservice.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +20,17 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping("/")
-    public String list(Model model){
+    private final BoardRepository boardRepository;
 
-        List<BoardDto> boardList = boardService.getBoardList();
-        model.addAttribute("boardList",boardList);
+    //게시글 목록
+    @GetMapping("/")
+    public String list(@RequestParam(value="page", defaultValue = "1") Integer pageNum, Model model){
+
+        List<BoardDto> boardList = boardService.getBoardlist(pageNum);
+        Integer[] pageList = boardService.getPageList(pageNum);
+
+        model.addAttribute("boardList", boardList);
+        model.addAttribute("pageList", pageList);
         return "board/list.html";
 
     }
@@ -64,4 +73,16 @@ public class BoardController {
         boardService.deletePost(no);
         return "redirect:/";
     }
+
+    @GetMapping("/board/search")
+    public String search(@RequestParam(value="keyword") String keyword, Model model){
+        List<BoardDto> boardDtoList = boardService.searchPosts(keyword);
+        model.addAttribute("boardList",boardDtoList);
+
+        return "board/list.html";
+    }
+
+
+
+
 }
